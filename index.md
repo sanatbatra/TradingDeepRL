@@ -46,13 +46,29 @@ Each episode consisted of 252 steps (the average number of trading days in a yea
 
 - Training Period: Training was done on data from January 2009 - December 2016
 - Validation Period: Validation and tuning of hyperparameters was done on data from January 2017 - December 2017
-- Testing Period: I only tested once after training and hyperparameter tuning, to ensure that there was no bias included in the test results in the form of fitting the test set. Testing was done on data from January 2018 - August 2020.
+- Testing Period: I only tested once after training and hyperparameter tuning, to ensure that there was no bias included in the test results in the form of tuning on the test set. Testing was done on data from January 2018 - August 2020.
 
 To make sense of my test results, I compared the profit percentage made by my trained agent to that made by a baseline strategy of buying the Dow Jones index at the beginning of the test period and holding it till the end. This serves as a great baseline since most investors use a buy and hold strategy and assuming they picked a few stocks at random from the Dow Jones index, they can expect the same return percentage as the baseline strategy of buying and holding the index. If the agent has learnt how to succesfully buy low and sell high, it should get a better return percentage than the baseline strategy.
 
 
 ### Training Curve
+
 ![Training Curve](https://github.com/sanatbatra/TradingDeepRL/blob/main/SoftActorCritic/plots/TrainScoreVsEpisodeSAC.png)
+
+As you can see from the training curve, the agent fits the training data quite well. It seems to overfit the relatively small training set since I've trained it for a large number of episodes (3500). Towards the end of training it gets ~50% return per episode (per year) on average, which is slightly unrealstic. To know if it can generalize to data from out of the training data, we should take a look at the validation curve.
+
+### Validation Curve
+
+![Validation Curve](https://github.com/sanatbatra/TradingDeepRL/blob/main/SoftActorCritic/plots/EvalScoreVsEpisodeSAC.png)
+
+The agent almost consistently, gets a profit that is much higher than what the baseline strategy could get on the validation data. That's a good sign that the agent is learning a profitable strategy that can generalize.
+
+### Test Results
+
+![Test Returns](https://github.com/sanatbatra/TradingDeepRL/blob/main/SoftActorCritic/20180101-20200801_ReturnsComparison.png)
+
+
+
 
 
 ```markdown
