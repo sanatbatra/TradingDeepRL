@@ -38,7 +38,14 @@ Here's how my RL environment is set up:-
     
 ### Learning Algorithm
 
-The trading agent needs to learn to maximize its objective (the net worth of the portfolio it is managing). For this purpose, I've used the Soft Actor Critic Algorithm (https://arxiv.org/abs/1801.01290). 
+The trading agent needs to learn to maximize its objective (the net worth of the portfolio it is managing). For this purpose, I've used the Soft Actor Critic Algorithm (https://arxiv.org/abs/1801.01290). Soft Actor Critic (SAC) attempts to maximize the entropy of the agent alongwith maximizing its expected reward. Entropy is a measure of the randomness in the agents actions, and a learning algorithm that maximizes entropy helps greatly with exploration. Exploration is vital to training an agent in this trading environment because of its large action space (30 dimensions). Without exploration the agent would often get stuck in local optima of performing the same actions - only buying, or only selling, or only buying/selling a single stock. Hence, Soft Actor Critic is the ideal algorithm for this trading environment. 
+
+
+
+
+### Training Curve
+![Training Curve](https://github.com/sanatbatra/TradingDeepRL/blob/main/SoftActorCritic/plots/TrainScoreVsEpisodeSAC.png)
+
 
 ```markdown
 Syntax highlighted code block
