@@ -40,7 +40,15 @@ Here's how my RL environment is set up:-
 
 The trading agent needs to learn to maximize its objective (the net worth of the portfolio it is managing). For this purpose, I've used the Soft Actor Critic Algorithm (https://arxiv.org/abs/1801.01290). Soft Actor Critic (SAC) attempts to maximize the entropy of the agent alongwith maximizing its expected reward. Entropy is a measure of the randomness in the agents actions, and a learning algorithm that maximizes entropy helps greatly with exploration. Exploration is vital to training an agent in this trading environment because of its large action space (30 dimensions). Without exploration the agent would often get stuck in local optima of performing the same actions - only buying, or only selling, or only buying/selling a single stock. Hence, Soft Actor Critic is the ideal algorithm for this trading environment. 
 
+### Experimental Setup
 
+Each episode consisted of 252 steps (the average number of trading days in a year)
+
+- Training Period: Training was done on data from January 2009 - December 2016
+- Validation Period: Validation and tuning of hyperparameters was done on data from January 2017 - December 2017
+- Testing Period: I only tested once after training and hyperparameter tuning, to ensure that there was no bias included in the test results in the form of fitting the test set. Testing was done on data from January 2018 - August 2020.
+
+To make sense of my test results, I compared the profit percentage made by my trained agent to that made by a baseline strategy of buying the Dow Jones index at the beginning of the test period and holding it till the end. This serves as a great baseline since most investors use a buy and hold strategy and assuming they picked a few stocks at random from the Dow Jones index, they can expect the same return percentage as the baseline strategy of buying and holding the index. If the agent has learnt how to succesfully buy low and sell high, it should get a better return percentage than the baseline strategy.
 
 
 ### Training Curve
