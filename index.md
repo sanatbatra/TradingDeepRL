@@ -53,19 +53,19 @@ To make sense of my test results, I compared the profit percentage made by my tr
 
 ### Training Curve
 
-![Training Curve](https://github.com/sanatbatra/TradingDeepRL/blob/main/SoftActorCritic/plots/TrainScoreVsEpisodeSAC.png)
+![Training Curve](github.com/sanatbatra/TradingDeepRL/blob/main/SoftActorCritic/plots/TrainScoreVsEpisodeSAC.png)
 
 As you can see from the training curve, the agent fits the training data quite well. It seems to overfit the relatively small training set since I've trained it for a large number of episodes (3500). Towards the end of training it gets ~50% return per episode (per year) on average, which is slightly unrealstic. To know if it can generalize to data from out of the training data, we should take a look at the validation curve.
 
 ### Validation Curve
 
-![Validation Curve](https://github.com/sanatbatra/TradingDeepRL/blob/main/SoftActorCritic/plots/EvalScoreVsEpisodeSAC.png)
+![Validation Curve](github.com/sanatbatra/TradingDeepRL/blob/main/SoftActorCritic/plots/EvalScoreVsEpisodeSAC.png)
 
 The agent almost consistently, gets a profit that is much higher than what the baseline strategy could get on the validation data. That's a good sign that the agent is learning a profitable strategy that can generalize.
 
 ### Test Results
 
-![Test Returns](https://github.com/sanatbatra/TradingDeepRL/blob/main/SoftActorCritic/20180101-20200801_ReturnsComparison.png)
+![Test Returns](github.com/sanatbatra/TradingDeepRL/blob/main/SoftActorCritic/20180101-20200801_ReturnsComparison.png)
 
 
 
