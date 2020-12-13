@@ -12,6 +12,11 @@ The agent is to take an action (Buy, Hold or Sell) given the state it is in (cur
 
 I've been trading for the past 2 years and have been working on research in Deep Learning/AI for about the same time. It's time I put two and two together. I hope to build a trading bot that can consistently outperform the Dow Jones index by learning how to take advantage of the price fluctuations of each of its stocks.
 
+### Assumptions
+
+- I've assumed that there's no transaction fee to be paid on any buy/sell action. This is not a realistic assumption, but as we will see going forward, the usual transaction fee applied will only have a small impact on the final results.
+- Another assumption is that the actions of the trading agent have no impact on the stock market, ie. the agent's actions do not affect the price movement of any of the stocks. This can be a realistic assumption if the agent is trading in small amounts that cannot really affect the demand and supply of the highly liquid stocks it's trading. For now we can "afford" to ignore this issue.
+
 ### Data
 
 For this project, I've used the end of day prices and volume data (Open, High, Low, Close, Volume) of all 30 stocks in the Dow Jones Industrial Average index ranging from January 2009 - August 2020.
@@ -53,19 +58,28 @@ To make sense of my test results, I compared the profit percentage made by my tr
 
 ### Training Curve
 
-![Training Curve](github.com/sanatbatra/TradingDeepRL/blob/main/SoftActorCritic/plots/TrainScoreVsEpisodeSAC.png)
+![Training Curve](https://github.com/sanatbatra/TradingDeepRL/blob/main/SoftActorCritic/plots/TrainScoreVsEpisodeSAC.png)
 
 As you can see from the training curve, the agent fits the training data quite well. It seems to overfit the relatively small training set since I've trained it for a large number of episodes (3500). Towards the end of training it gets ~50% return per episode (per year) on average, which is slightly unrealstic. To know if it can generalize to data from out of the training data, we should take a look at the validation curve.
 
 ### Validation Curve
 
-![Validation Curve](github.com/sanatbatra/TradingDeepRL/blob/main/SoftActorCritic/plots/EvalScoreVsEpisodeSAC.png)
+![Validation Curve](https://github.com/sanatbatra/TradingDeepRL/blob/main/SoftActorCritic/plots/EvalScoreVsEpisodeSAC.png)
 
 The agent almost consistently, gets a profit that is much higher than what the baseline strategy could get on the validation data. That's a good sign that the agent is learning a profitable strategy that can generalize.
 
 ### Test Results
 
-![Test Returns](github.com/sanatbatra/TradingDeepRL/blob/main/SoftActorCritic/20180101-20200801_ReturnsComparison.png)
+![Test Returns](https://github.com/sanatbatra/TradingDeepRL/blob/main/SoftActorCritic/20180101-20200801_ReturnsComparison.png)
+
+The above plot is that of the cumulative returns made by both the trained agent and the baseline strategy throughout the testing period (January 2018 - August 2020). The agent outperforms the baseline by a large margin by the end of the testing period by getting a final cumulative return of 42.98% compared to a return of only 7.71% made by the baseline strategy.
+
+### Conclusions
+
+
+
+
+
 
 
 
