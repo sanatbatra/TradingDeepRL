@@ -66,49 +66,14 @@ As you can see from the training curve, the agent fits the training data quite w
 
 ![Validation Curve](https://github.com/sanatbatra/TradingDeepRL/blob/main/SoftActorCritic/plots/EvalScoreVsEpisodeSAC.png)
 
-The agent almost consistently, gets a profit that is much higher than what the baseline strategy could get on the validation data. That's a good sign that the agent is learning a profitable strategy that can generalize.
+The agent almost consistently gets a profit that is much higher than what the baseline strategy could get on the validation data. That's a good sign that the agent is learning a profitable strategy that can generalize.
 
 ### Test Results
-
 ![Test Returns](https://github.com/sanatbatra/TradingDeepRL/blob/main/SoftActorCritic/20180101-20200801_ReturnsComparison.png)
 
 The above plot is that of the cumulative returns made by both the trained agent and the baseline strategy throughout the testing period (January 2018 - August 2020). The agent outperforms the baseline by a large margin by the end of the testing period by getting a final cumulative return of 42.98% compared to a return of only 7.71% made by the baseline strategy.
 
 ### Conclusions
 
+The training and validation curves, as well as the test results point towards the fact that the agent is learning a profitable strategy that buys low and sells high. Furthermore, minimal hyperparameter tuning was done during the training process and that's always a good sign. Altough the agent is able to learn from the technical indicators provided to it, external information such as sentiment from news, could serve as a great addition to the observation space. Maybe the agent could even avoid the losses suffered during the market fall as a result of the coronavirus in March 2020, if provided with sentiment from news or blogs. 
 
-
-
-
-
-
-
-
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/sanatbatra/TradingDeepRL/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
