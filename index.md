@@ -75,5 +75,5 @@ The above plot is that of the cumulative returns made by both the trained agent 
 
 ### Conclusions
 
-The training and validation curves, as well as the test results point towards the fact that the agent is learning a profitable strategy that buys low and sells high. Furthermore, minimal hyperparameter tuning was done during the training process and that's always a good sign. Altough the agent is able to learn from the technical indicators provided to it, external information such as sentiment from news, could serve as a great addition to the observation space. Maybe the agent could even avoid the losses suffered during the market fall as a result of the coronavirus in March 2020, if provided with sentiment from news or blogs. 
+The training and validation curves, as well as the test results point towards the fact that the agent is learning a profitable strategy that buys low and sells high. Furthermore, minimal hyperparameter tuning was done during the training process and that's always a good sign. Altough the agent is able to learn from the technical indicators provided to it, external information such as sentiment from news, could serve as a great addition to the observation space. Maybe the agent could even avoid the losses suffered during the market fall as a result of the coronavirus in March 2020, if provided with sentiment from the news or blogs. 
 
