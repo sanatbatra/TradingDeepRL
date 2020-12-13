@@ -78,7 +78,7 @@ The agent almost consistently gets a profit that is much higher than what the ba
 
 The above plot is that of the cumulative returns made by both the trained agent and the baseline strategy throughout the testing period (January 2018 - August 2020). The agent outperforms the baseline by a large margin by the end of the testing period by getting a final cumulative return of 42.98% compared to a return of only 7.71% made by the baseline strategy.
 
-### Conclusions
+### Conclusion
 
 The training and validation curves, as well as the test results point towards the fact that the agent is learning a profitable strategy that buys low and sells high. Furthermore, minimal hyperparameter tuning was done during the training process and that's always a good sign. Altough the agent is able to learn from the technical indicators provided to it, external information such as sentiment from news, could serve as a great addition to the observation space. Maybe the agent could even avoid the losses suffered during the market fall as a result of the coronavirus in March 2020, if provided with sentiment from news articles or blogs. 
 
