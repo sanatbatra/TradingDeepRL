@@ -11,7 +11,7 @@ As shown in Figure 1, the agent is to take an action (Buy, Hold or Sell) given t
 ![RL problem diagram](https://spinningup.openai.com/en/latest/_images/rl_diagram_transparent_bg.png) 
 
 
-Figure 1. Agent-environment interaction loop
+*Figure 1.* Agent-environment interaction loop
 
 ### End Goal
 
@@ -74,7 +74,7 @@ To make sense of my test results, I compared the profit percentage made by my tr
 ![Training Curve](https://raw.githubusercontent.com/sanatbatra/TradingDeepRL/main/SoftActorCritic/plots/TrainScoreVsEpisodeSAC.png)
 
 
-Figure 2. Agent Score (Profit) vs Episode number during training
+*Figure 2.* Agent Score (Profit) vs Episode number during training
 
 
 
@@ -86,7 +86,7 @@ As you can see from the training curve, the agent fits the training data quite w
 ![Validation Curve](https://raw.githubusercontent.com/sanatbatra/TradingDeepRL/main/SoftActorCritic/plots/EvalScoreVsEpisodeSAC.png)
 
 
-Figure 3. Agent Score (Profit) vs Episode number on validation data
+*Figure 3.* Agent Score (Profit) vs Episode number on validation data
 
 
 
@@ -96,7 +96,7 @@ The agent almost consistently gets a profit that is much higher than what the ba
 ![Test Returns](https://raw.githubusercontent.com/sanatbatra/TradingDeepRL/main/SoftActorCritic/20180101-20200801_ReturnsComparison.png)
 
 
-Figure 4. Agent and baseline returns during test period
+*Figure 4.* Agent and baseline returns during test period
 
 
 
