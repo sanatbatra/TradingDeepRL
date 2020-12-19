@@ -15,7 +15,8 @@ I've been trading for the past 2 years and have been working on research in Deep
 ### Assumptions
 
 - I've assumed that there's no transaction fee to be paid on any buy/sell action. This is not a realistic assumption, but as we will see going forward, the usual transaction fee applied will only have a small impact on the final results.
-- Another assumption is that the actions of the trading agent have no impact on the stock market, ie. the agent's actions do not affect the price movement of any of the stocks. This can be a realistic assumption if the agent is trading in small amounts that cannot really affect the demand and supply of the highly liquid stocks it's trading. For now we can "afford" to ignore this issue.
+- Another assumption is that the actions of the trading agent have no impact on the stock market, ie. the agent's actions do not affect the price movement of any of the stocks. This can be a realistic assumption if the agent is trading in small amounts that cannot really affect the demand and supply of the highly liquid stocks it's trading. For now, we can "afford" to ignore this issue.
+- I've also made the assumptions that a stock can be bought at it's closing price. In reality, a stock cannot be purchased at or after the market closing time for the day. But, we could easily run the trading bot and send out orders 2-3 minutes before the market closes. A stock's price shouldn't vary much in the last few minutes, and this assumptions would only end up making a slight difference to our final results.
 
 ### Data
 
@@ -39,7 +40,7 @@ Here's how my RL environment is set up:-
     - 30 dimensions (1 action value for each stock), ranging from +1 which equates to buying the maximum quantity possible, to -1 which equates to selling the             maximum quantity possible. Maximum quantity is set to 10, therefore the agent cannot buy or sell more than 10 of any stock at one step.
  
  3. Reward: After taking an action, the agent gets a reward from the environment. This is the objective that it would try to maximize.
-    - Increase in net worth of the portfolio from the previous step.
+    - At each step, the reward is the increase in net worth of the portfolio from the previous step.
     
 ### Learning Algorithm
 
