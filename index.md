@@ -75,6 +75,7 @@ To make sense of my test results, I compared the profit percentage made by my tr
 Figure 2. Agent Score (Profit) vs Episode number during training
 
 
+
 As you can see from the training curve, the agent fits the training data quite well. It seems to overfit the relatively small training set since I've trained it for a large number of episodes (3500). Towards the end of training it gets ~50% return per episode (per year) on average, which is slightly unrealstic. To know if it can generalize to data from out of the training data, we should take a look at the validation curve.
 
 ### Validation Curve
@@ -86,6 +87,7 @@ As you can see from the training curve, the agent fits the training data quite w
 Figure 3. Agent Score (Profit) vs Episode number on validation data
 
 
+
 The agent almost consistently gets a profit that is much higher than what the baseline strategy could get on the validation data. That's a good sign that the agent is learning a profitable strategy that can generalize.
 
 ### Test Results
@@ -93,6 +95,7 @@ The agent almost consistently gets a profit that is much higher than what the ba
 
 
 Figure 4. Agent and baseline returns during test period
+
 
 
 The above plot is that of the cumulative returns made by both the trained agent and the baseline strategy throughout the testing period (January 2018 - August 2020). The agent outperforms the baseline by a large margin by the end of the testing period by getting a final cumulative return of 42.98% compared to a return of only 7.71% made by the baseline strategy.
