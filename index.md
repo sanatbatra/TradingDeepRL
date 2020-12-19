@@ -53,7 +53,7 @@ The trading agent needs to learn to maximize its objective (the net worth of the
 
 ![SAC policy equation](https://spinningup.openai.com/en/latest/_images/math/b86bf499707114c8789946df649871c5b9185b9d.svg)
 
-where R is the reward function and H is the entropy function. ![alpha](https://spinningup.openai.com/en/latest/_images/math/900375490edee0019a5c54a311bf91de801a1642.svg) is the entropy coefficient that decides how much importance to give to the entropy component in the above equation.  
+where R is the reward function and H is the entropy function. ![alpha](https://spinningup.openai.com/en/latest/_images/math/900375490edee0019a5c54a311bf91de801a1642.svg) is the entropy coefficient (also called temperature) that decides how much importance to give to the entropy component in the above equation.  I've used an automatic gradient-based temperature tuning method that adjusts the expected entropy over the visited states to match a target value. I've also used prioritized replay with a smaller than usual replay size of 40,000.
 
 ### Experimental Setup
 
