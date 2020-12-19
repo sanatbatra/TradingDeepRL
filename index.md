@@ -40,6 +40,8 @@ Here's how my RL environment is set up:-
    Therefore, the observation space has 181 dimensions. 
    
    RSI, MACD, ADX and CCI are technical indicators that quantify the trend, momentum, etc. of the recent price fluctuations of a stock.
+   
+   Before including technical indicators in my state space, I experimented with encoding the closing prices from the past 'n' timesteps using LSTM, GRU and even 1-dimensional convolutional layers. I experimented with a varying values of 'n' and found that using an encoding of the history of prices in such a manner did not work well, i.e. I could not get my agent to learn using this information. Instead I used technical indicators, calculated using the historical price and volume data, to obtain information about the price history indirectly.  
  
  2. Action Space: The agent needs to take an action at each step.
     - 30 dimensions (1 action value for each stock), ranging from +1 which equates to buying the maximum quantity possible, to -1 which equates to selling the             maximum quantity possible. Maximum quantity is set to 10, therefore the agent cannot buy or sell more than 10 of any stock at one step.
@@ -100,7 +102,8 @@ Figure 4. Agent and baseline returns during test period
 
 The above plot is that of the cumulative returns made by both the trained agent and the baseline strategy throughout the testing period (January 2018 - August 2020). The agent outperforms the baseline by a large margin by the end of the testing period by getting a final cumulative return of 42.98% compared to a return of only 7.71% made by the baseline strategy.
 
-### Conclusion
+### Conclusion and Future Work
 
-The training and validation curves, as well as the test results point towards the fact that the agent is learning a profitable strategy that buys low and sells high. Furthermore, minimal hyperparameter tuning was done during the training process and that's always a good sign. Altough the agent is able to learn from the technical indicators provided to it, external information such as sentiment from news, could serve as a great addition to the observation space. Maybe the agent could even avoid the losses suffered during the market fall as a result of the coronavirus in March 2020, if provided with sentiment from news articles or blogs. 
+The training and validation curves, as well as the test results point towards the fact that the agent is learning a profitable strategy that buys low and sells high. Furthermore, minimal hyperparameter tuning was done during the training process and that's always a good sign. Altough the agent is able to learn from the technical indicators provided to it, external information such as sentiment from news, could serve as a great addition to the observation space. Maybe the agent could even avoid the losses suffered during the market fall as a result of the coronavirus in March 2020, if provided with sentiment from news articles or blogs.
+I also need to explore the use of a history of technical indicators, instead of only the most recent values, encoded using LSTM/GRU/1-D conv. layers, as part of the state space. I believe this will provide the agent with even richer information, since professional traders usually use fluctuations of indicator values, the crossing over of two different indicators, etc. as signals to enter/exit trades.
 
