@@ -9,6 +9,8 @@ Deep Reinforcement Learning is an ideal solution to the environment of swing tra
 As shown in Figure 1, the agent is to take an action (Buy, Hold or Sell) given the state it is in (current stock prices, holdings, external factors, etc.). At each step, it's action results in a reward (the profit it makes) and the agent needs to learn how to maximize this reward, by choosing the right set of actions. 
 
 ![RL problem diagram](https://spinningup.openai.com/en/latest/_images/rl_diagram_transparent_bg.png) 
+
+
 Figure 1. Agent-environment interaction loop
 
 ### End Goal
@@ -47,9 +49,11 @@ Here's how my RL environment is set up:-
     
 ### Learning Algorithm
 
-The trading agent needs to learn to maximize its objective (the net worth of the portfolio it is managing). For this purpose, I've used the Soft Actor Critic Algorithm (https://arxiv.org/abs/1801.01290). Soft Actor Critic (SAC) attempts to maximize the entropy of the agent alongwith maximizing its expected reward. Entropy is a measure of the randomness in the agents actions, and a learning algorithm that maximizes entropy helps greatly with exploration. Exploration is vital to training an agent in this trading environment because of its large action space (30 dimensions). Without exploration the agent would often get stuck in local optima of performing the same actions - only buying, or only selling, or only buying/selling a single stock. Hence, Soft Actor Critic is the ideal algorithm for this trading environment. 
+The trading agent needs to learn to maximize its objective (the net worth of the portfolio it is managing). For this purpose, I've used the Soft Actor Critic Algorithm (https://arxiv.org/abs/1801.01290). Soft Actor Critic (SAC) attempts to maximize the entropy of the agent alongwith maximizing its expected reward. Entropy is a measure of the randomness in the agents actions, and a learning algorithm that maximizes entropy helps greatly with exploration. Exploration is vital to training an agent in this trading environment because of its large action space (30 dimensions). Without exploration the agent would often get stuck in local optima of performing the same actions - only buying, or only selling, or only buying/selling a single stock. Hence, Soft Actor Critic is the ideal algorithm for this trading environment. Here, the optimal policy to be learnt is - 
 
 ![SAC policy equation](https://spinningup.openai.com/en/latest/_images/math/b86bf499707114c8789946df649871c5b9185b9d.svg)
+
+where R is the reward function and H is the entropy function. ![alpha](https://spinningup.openai.com/en/latest/_images/math/900375490edee0019a5c54a311bf91de801a1642.svg) is the entropy coefficient that decides how much importance to give to the entropy component in the above equation.  
 
 ### Experimental Setup
 
@@ -68,6 +72,9 @@ To make sense of my test results, I compared the profit percentage made by my tr
 ![Training Curve](https://raw.githubusercontent.com/sanatbatra/TradingDeepRL/main/SoftActorCritic/plots/TrainScoreVsEpisodeSAC.png)
 
 
+Figure 2. Agent Score (Profit) vs Episode number during training
+
+
 As you can see from the training curve, the agent fits the training data quite well. It seems to overfit the relatively small training set since I've trained it for a large number of episodes (3500). Towards the end of training it gets ~50% return per episode (per year) on average, which is slightly unrealstic. To know if it can generalize to data from out of the training data, we should take a look at the validation curve.
 
 ### Validation Curve
@@ -76,10 +83,16 @@ As you can see from the training curve, the agent fits the training data quite w
 ![Validation Curve](https://raw.githubusercontent.com/sanatbatra/TradingDeepRL/main/SoftActorCritic/plots/EvalScoreVsEpisodeSAC.png)
 
 
+Figure 3. Agent Score (Profit) vs Episode number on validation data
+
+
 The agent almost consistently gets a profit that is much higher than what the baseline strategy could get on the validation data. That's a good sign that the agent is learning a profitable strategy that can generalize.
 
 ### Test Results
 ![Test Returns](https://raw.githubusercontent.com/sanatbatra/TradingDeepRL/main/SoftActorCritic/20180101-20200801_ReturnsComparison.png)
+
+
+Figure 4. Agent and baseline returns during test period
 
 
 The above plot is that of the cumulative returns made by both the trained agent and the baseline strategy throughout the testing period (January 2018 - August 2020). The agent outperforms the baseline by a large margin by the end of the testing period by getting a final cumulative return of 42.98% compared to a return of only 7.71% made by the baseline strategy.
