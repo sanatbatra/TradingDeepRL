@@ -6,7 +6,10 @@ I worked on this project for the Deep Reinforcement Learning course at NYU Coura
 
 Swing Trading is a trading strategy in financial markets where an asset is bought and held for a few days to several weeks, in an effort to profit from price changes or 'swings'.
 Deep Reinforcement Learning is an ideal solution to the environment of swing trading, since the environment can be framed as a Markov's Decision Process (MDP).
-The agent is to take an action (Buy, Hold or Sell) given the state it is in (current stock prices, holdings, external factors, etc.). At each step, it's action results in a reward (the profit it makes) and the agent needs to learn how to maximize this reward, by choosing the right set of actions. 
+As shown in Figure 1, the agent is to take an action (Buy, Hold or Sell) given the state it is in (current stock prices, holdings, external factors, etc.). At each step, it's action results in a reward (the profit it makes) and the agent needs to learn how to maximize this reward, by choosing the right set of actions. 
+
+![RL problem diagram](https://spinningup.openai.com/en/latest/_images/rl_diagram_transparent_bg.png) 
+Figure 1. Agent-environment interaction loop
 
 ### End Goal
 
@@ -45,6 +48,8 @@ Here's how my RL environment is set up:-
 ### Learning Algorithm
 
 The trading agent needs to learn to maximize its objective (the net worth of the portfolio it is managing). For this purpose, I've used the Soft Actor Critic Algorithm (https://arxiv.org/abs/1801.01290). Soft Actor Critic (SAC) attempts to maximize the entropy of the agent alongwith maximizing its expected reward. Entropy is a measure of the randomness in the agents actions, and a learning algorithm that maximizes entropy helps greatly with exploration. Exploration is vital to training an agent in this trading environment because of its large action space (30 dimensions). Without exploration the agent would often get stuck in local optima of performing the same actions - only buying, or only selling, or only buying/selling a single stock. Hence, Soft Actor Critic is the ideal algorithm for this trading environment. 
+
+![SAC policy equation](https://spinningup.openai.com/en/latest/_images/math/b86bf499707114c8789946df649871c5b9185b9d.svg)
 
 ### Experimental Setup
 
